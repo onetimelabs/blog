@@ -16,9 +16,10 @@ module Jekyll
 
     site  = Jekyll.sites.first
     tcfg  = site.config['typst'] || {}
-    dark  = tcfg['dark_color']  || '#fff9e0'
-    light = tcfg['light_color'] || '#667d6e'
+    dark  = tcfg['dark_color']   || '#fff9e0'
+    light = tcfg['light_color']  || '#667d6e'
     extra = tcfg['preamble'].to_s
+    dsize = tcfg['display_size'] || '20pt'
 
     # STEP 1: Process @@@...@@@ block math, skipping code spans/blocks.
     doc.content.gsub!(/(`+)([\s\S]*?)\1|(?<!\\)@@@([\s\S]+?)(?<!\\)@@@/) do |match|
@@ -32,8 +33,8 @@ module Jekyll
         next @typst_block_cache[math_code]
       end
 
-      svg_dark  = Jekyll.compile_typst_svg(math_code, dark,  'typst_block', extra)
-      svg_light = Jekyll.compile_typst_svg(math_code, light, 'typst_block', extra)
+      svg_dark  = Jekyll.compile_typst_svg(math_code, dark,  'typst_block', extra, display_math: true, size: dsize)
+      svg_light = Jekyll.compile_typst_svg(math_code, light, 'typst_block', extra, display_math: true, size: dsize)
 
       result = if svg_dark || svg_light
         inner = ""

@@ -41,10 +41,11 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Build with Jekyll
-        # We pass the base_path just in case your site is hosted at a subpath like github.io/my-repo/
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+          # Tells Typst to look in your local webfonts folder before compiling
+          TYPST_FONT_PATHS: ${{ github.workspace }}/webfonts
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

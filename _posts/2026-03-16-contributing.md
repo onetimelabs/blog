@@ -1,15 +1,14 @@
 ---
 layout: post
 title:  "Contributing to the onetimelabs blog"
-author: Fabrizio Genovese and Stefano Gogioso
 categories: []
 excerpt: This post explains how to contribute to the onetimelabs blog.
 usemathjax: true
 thanks: "The space at the beginning of each post is optionally used for acknowledgements."
 ---
 
-![onetimelabs logo](../assetsPosts/2024-06-04-contributing/Logo.svg)
-
+<img class="logo-dark"  src="{{ site.baseurl }}/images/logo-dark.svg"  alt="onetimelabs logo" style="margin-left: auto; margin-right: auto;"/>
+<img class="logo-light" src="{{ site.baseurl }}/images/logo-light.svg" alt="onetimelabs logo" style="margin-left: auto; margin-right: auto;"/>
 
 The onetimelabs blog is based on the [Reverie](https://jekyllthemes.io/theme/reverie) Jekyll theme by Amit Merchant.
 The blog is open to external contributors, and this post details the workflow and available features for all contributions.
@@ -123,7 +122,7 @@ This is the preferred choice. We have full typst support, and you can use it as 
 - Inline math is shown by using `\@@ ... \@@`. For instance the following snippet: `\@@ sum_(i=1)^n i = (n(n+1))/2 \@@` produces @@ sum_(i=1)^n i = (n(n+1))/2 @@.
 - Display math is shown by using `\@@@ ... \@@@`. For instance, the following snippet: `\@@@ sum_(i=1)^n i = (n(n+1))/2 \@@@` produces 
 
-@@@ sum_(i=1)^n i = (n(n+1))/2 @@@
+@@@sum_(i=1)^n i = (n(n+1))/2@@@
 
 - You can also use a liquid tag `typst` for display math. For instance:
 

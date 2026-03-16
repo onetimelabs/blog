@@ -17,8 +17,9 @@ avatarpng: /images/favicon.svg
 
 # Typst math rendering
 typst:
-  dark_color:  "#fff9e0"  # cream — foreground in dark theme
-  light_color: "#667d6e"  # sage  — foreground in light theme
+  dark_color:   "#fff9e0"  # cream — foreground in dark theme
+  light_color:  "#667d6e"  # sage  — foreground in light theme
+  display_size: "18pt"     # font size for block/display math (@@@ or {% typst %})
   preamble: |
       #set text(font: "DM Serif Display")
 
