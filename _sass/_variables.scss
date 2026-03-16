@@ -1,0 +1,170 @@
+
+//
+// VARIABLES
+//
+@use "sass:color";
+
+// Base palette
+$sage:  #667d6e;
+$cream: #fff9e0;
+$tan:   #e8a87c;
+$rust:  #996043;
+
+@mixin light-theme {
+  --bg:         #{$cream};
+  --fg:         #{$sage};
+  --accent-one: #{$rust};
+  --accent-two: #{$tan};
+  --box-bg:     #{$sage};
+  --box-fg:     #{$cream};
+
+  --code-env-bg: #{color.mix(black, $cream, 8%)};
+  --code-bg:     #{color.mix(black, $cream, 8%)};
+  --code-fg:     #{color.mix(black, $sage, 10%)};
+  --syn-keyword: #{$rust};
+  --syn-string:  #{color.mix(black, $rust, 10%)};
+  --syn-number:  #{color.mix(black, $sage, 20%)};
+  --syn-comment: #{color.mix(white, $sage, 15%)};
+  --syn-fn:      #{color.mix(black, $rust, 5%)};
+  --syn-type:    #{color.mix(black, $rust, 20%)};
+
+  // Specials
+  --site-name:          #{$sage};
+  --site-description:   #{$rust};
+  --nav-border:         #{$rust};
+  --footer-border:      #{$rust};
+  --heading-wings:      #{$rust};
+
+  // Backgrounds
+  --background:              #{$cream};
+  --menu-background:         #{$cream};
+  --pullquote-background:    #{$sage};
+  --blockquote-background:   #{$sage};
+  --math-background:         #{$sage};
+  --code-env-background:     #{color.mix(black, $cream, 8%)};
+  --thanks-background:       #{$sage};
+  --crosspost-background:    #{$sage};
+  --table-background:        #{$cream};
+  --search-background:       #{$sage};
+  --post-tags-background:    #{$rust};
+  --code-background:         #{color.mix(black, $cream, 4%)};
+  --selection-background:    #{$sage};
+  --you-may-like-background: #{$cream};
+
+  // Foregrounds
+  --main-foreground:         #{$sage};
+  --bold-foreground:         #{$rust};
+  --menu-foreground:         #{$rust};
+  --heading-foreground:      #{$sage};
+  --date-foreground:         #{$rust};
+  --post-foreground:         #{$rust};
+  --author-foreground:       #{$rust};
+  --footer-foreground:       #{$rust};
+  --link-foreground:         #{$rust};
+  --share-foreground:        #{$sage};
+  --blockquote-foreground:   #{$rust};
+  --math-foreground:         #{$cream};
+  --math-heading-foreground: #{$tan};
+  --thanks-foreground:       #{$cream};
+  --crosspost-foreground:    #{$cream};
+  --you-may-like-foreground: #{$sage};
+  --footer-hover:            #{$tan};
+  --link-hover:              #{$tan};
+  --selection-foreground:    #{$rust};
+  --post-tags-foreground:    #{$cream};
+  --figure-caption:          #{$rust};
+  --quiver-caption:          #{$rust};
+  --table-border:            #{$sage};
+  --search-input:            #{$rust};
+  --code-text:               #{color.mix(black, $sage, 10%)};
+}
+
+// Dark mode: CSS default + explicit override
+:root,
+[data-theme="dark"] {
+  --bg:         #{$sage};
+  --fg:         #{$cream};
+  --accent-one: #{$tan};
+  --accent-two: #{$rust};
+  --box-bg:     #{$cream};
+  --box-fg:     #{$sage};
+
+  --code-env-bg: #{color.mix(black, $sage, 15%)};
+  --code-bg:     #{color.mix(black, $sage, 15%)};
+  --code-fg:     #{$cream};
+  --syn-keyword: #{$tan};
+  --syn-string:  #{color.mix(white, $tan, 25%)};
+  --syn-number:  #{$rust};
+  --syn-comment: #{color.mix($sage, $cream, 60%)};
+  --syn-fn:      #{color.mix(white, $tan, 12%)};
+  --syn-type:    #{color.mix(white, $rust, 20%)};
+
+  // Specials
+  --site-name:          #{$cream};
+  --site-description:   #{$tan};
+  --nav-border:         #{$tan};
+  --footer-border:      #{$tan};
+  --heading-wings:      #{$tan};
+
+  // Backgrounds
+  --background:              #{$sage};
+  --menu-background:         #{$sage};
+  --pullquote-background:    #{$cream};
+  --blockquote-background:   #{$cream};
+  --math-background:         #{$cream};
+  --code-env-background:     #{color.mix(black, $sage, 30%)};
+  --thanks-background:       #{$cream};
+  --crosspost-background:    #{$cream};
+  --table-background:        #{$sage};
+  --search-background:       #{$cream};
+  --post-tags-background:    #{$tan};
+  --code-background:         #{color.mix(black, $sage, 15%)};
+  --selection-background:    #{$cream};
+  --you-may-like-background: #{$sage};
+
+  // Foregrounds
+  --main-foreground:         #{$cream};
+  --bold-foreground:         #{$tan};
+  --menu-foreground:         #{$tan};
+  --heading-foreground:      #{$cream};
+  --date-foreground:         #{$tan};
+  --post-foreground:         #{$tan};
+  --author-foreground:       #{$tan};
+  --footer-foreground:       #{$tan};
+  --link-foreground:         #{$tan};
+  --share-foreground:        #{$cream};
+  --blockquote-foreground:   #{$tan};
+  --math-foreground:         #{$sage};
+  --math-heading-foreground: #{$rust};
+  --thanks-foreground:       #{$sage};
+  --crosspost-foreground:    #{$sage};
+  --you-may-like-foreground: #{$cream};
+  --footer-hover:            #{$rust};
+  --link-hover:              #{$rust};
+  --selection-foreground:    #{$tan};
+  --post-tags-foreground:    #{$cream};
+  --figure-caption:          #{$tan};
+  --quiver-caption:          #{$tan};
+  --table-border:            #{$cream};
+  --search-input:            #{$tan};
+  --code-text:               #{$cream};
+}
+
+// Light mode: OS preference (unless user manually chose dark)
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    @include light-theme;
+  }
+}
+
+// Light mode: explicit override
+[data-theme="light"] {
+  @include light-theme;
+}
+
+// Mobile breakpoints
+@mixin mobile {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}

@@ -1,0 +1,59 @@
+@use "variables" as *;
+
+// Code block container (horizontal scroll — line breaks are semantic)
+.highlight {
+  background-color: var(--code-env-bg);
+  padding: 7px 7px 7px 10px;
+  overflow-x: auto;
+  font-size: 0.95em;
+}
+
+// Inline code
+code {
+  font-family: 'DM Mono', 'Courier', monospace;
+  background-color: var(--code-bg);
+  color: var(--code-fg);
+  font-size: 0.95em;
+}
+
+.highlighter-rouge {
+  background-color: var(--code-bg);
+  color: var(--code-fg);
+  font-size: 0.95em;
+}
+
+// Block highlight base
+.highlight { background: var(--code-env-bg); color: var(--code-fg); }
+
+// Token colors (minimal: 6 categories)
+.highlight .c, .highlight .ch, .highlight .cm, .highlight .cpf,
+.highlight .c1, .highlight .cs { color: var(--syn-comment); font-style: italic; }
+
+.highlight .k, .highlight .o, .highlight .kc, .highlight .kn,
+.highlight .kp, .highlight .kr, .highlight .ow, .highlight .nt,
+.highlight .cp { color: var(--syn-keyword); }
+
+.highlight .kd, .highlight .kt { color: var(--syn-type); font-style: italic; }
+
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc,
+.highlight .dl, .highlight .sd, .highlight .s2, .highlight .se,
+.highlight .sh, .highlight .si, .highlight .sx, .highlight .sr,
+.highlight .s1, .highlight .ss { color: var(--syn-string); }
+
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh,
+.highlight .mi, .highlight .mo, .highlight .il { color: var(--syn-number); }
+
+.highlight .nf, .highlight .nc, .highlight .na, .highlight .fm,
+.highlight .nd { color: var(--syn-fn); }
+
+// Everything else: default code color
+.highlight .err, .highlight .g, .highlight .l, .highlight .n,
+.highlight .x, .highlight .p, .highlight .ge, .highlight .gr,
+.highlight .gh, .highlight .gi, .highlight .go, .highlight .gp,
+.highlight .gs, .highlight .gu, .highlight .gt, .highlight .ld,
+.highlight .no, .highlight .ni, .highlight .ne, .highlight .nl,
+.highlight .nn, .highlight .nx, .highlight .py, .highlight .nv,
+.highlight .w, .highlight .bp, .highlight .vc, .highlight .vg,
+.highlight .vi, .highlight .vm { color: var(--code-fg); }
+
+.highlight .hll { background-color: var(--syn-string); opacity: 0.3; }
